@@ -4,13 +4,13 @@
 @section("conteudo")
       <div class="conteudo-pagina">
             <div class="titulo-pagina">
-                <h1>Produtos</h1>
+                <h1>Adicionar produtos ao pedido</h1>
                 <ul class="nav_fornecedor">
-                    <li><a href="{{route('produtos.index')}}" >Voltar</a></li>
+                    <li><a href="{{route('pedidos.index')}}" >Voltar</a></li>
                 </ul>
             </div>
 
-        @component("app.produtos.components.formulario_produtos",["produto"=>$produto,"unidades"=>$unidades,"fornecedores"=>$fonecedores])
+        @component("app.pedidos.components.formulario_pedidos",["produtos"=>$produtos,"cliente"=>$cliente,"pedido"=>$pedido])
         @endcomponent
 
       </div>

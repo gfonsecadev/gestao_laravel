@@ -15,13 +15,15 @@ class CreateProdutos extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->string("nome",30);
-            $table->string("descricao",50);
+            $table->string("nome", 30);
+            $table->string("descricao", 50);
             $table->integer("peso");
-            $table->decimal("preco_venda",8,2);
+            $table->timestamps();
+            //essas abaixo serão dropadas na migrate 192015 só para fins de aprendizado
+            $table->decimal("preco_venda", 8, 2);
             $table->integer("estoque_minimo");
             $table->integer("estoque_maximo");
-            $table->timestamps();
+
         });
     }
 

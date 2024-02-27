@@ -20,6 +20,8 @@ class ContatoController extends Controller{
     public function formulario(Request $request){
         //dd($request);
         //print_r($request->all());
+        #validação da solicitação
+        #recebe um array com as regras dos parametros recebidos e outro com as mensagens a ser retornadas se erro
         $request->validate([
             "nome"=>"required|min:4|max:20|unique:site_contatos",
             "telefone"=>"required",
@@ -37,11 +39,12 @@ class ContatoController extends Controller{
 
         ]);
 
+        # outra forma de se fazer a instancia do model
         //SiteContato::create($request->all());
         $contato=new SiteContato();
         $contato->create($request->all());
-        
-        
+
+
         return redirect()->route("site.principal");
     }
 }

@@ -36,22 +36,23 @@
                                     <td>{{$fornecedor->uf}}</td>
                                     <td style="text-align:center"><a href={{route('app.fornecedores',["id"=>$fornecedor->id])}} style="color:green;">O</a></td>
                                     <td style="text-align:center"><a href={{route('app.fornecedores.excluir',["id"=>$fornecedor->id])}} style="color:red;">X</a></td>
-                                    
-                                </tr>
-                            @endforeach       
-                                       
-                        </tbody>
-                       
-                    </table> 
-                     {{$fornecedores->appends($request)->links()}}      
 
-                    Total do registros por página:{{ $fornecedores->count()}}  
-                    <br>                   
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+
+                    </table>
+                     {{-- paginação fins didáticos
+                         {{$fornecedores->appends($request)->links()}}
+
+                    Total do registros por página:{{ $fornecedores->count()}}
+                    <br>
                     Total do registros encontrados: {{ $fornecedores->total()}}
                     <br>
-                    Id do primeiro registro: {{$fornecedores->firstItem()}}     
+                    Id do primeiro registro: {{$fornecedores->firstItem()}}
                     <br>
-                    Id do último registro:{{ $fornecedores->lastItem()}}                
+                    Id do último registro:{{ $fornecedores->lastItem()}}   --}}
             </div>
     </div>
 

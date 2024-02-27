@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Cliente;
-use App\Pedido;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use PedidoProduto;
 
-class ClientesController extends Controller
+class PedidosProdutosController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes=Cliente::all();
-        return view("app.clientes.index",["clientes"=>$clientes]);
+
     }
 
     /**
@@ -27,7 +24,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view("app.clientes.create");
+        //
     }
 
     /**
@@ -38,11 +35,10 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        Cliente::create($request->all());
-        return redirect()->route("clientes.index");
+        //controlador responsável por por unir tabela cliente com produto para
+           echo("kkjljlk");
+        // return redirect()->route("produtos.index");
 
-
-      /*  return abort(404); retorna um codigo http */
     }
 
     /**
@@ -86,12 +82,7 @@ class ClientesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   //excluir os relacionamento da tabela auxiliar que está atrelada ao cliente
-        //se não existe cliente não pode haver pedidos nem pedidos com produtos selecionados
-        DB::table("pedidos_produtos")->where("cliente_id",$id)->delete();
-        //exclui o cliente
-        Cliente::destroy($id);
-        return redirect()->route("clientes.index");
-
+    {
+        //
     }
 }

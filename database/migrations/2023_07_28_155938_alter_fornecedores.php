@@ -16,9 +16,9 @@ class AlterFornecedores extends Migration
     {
         Schema::table("fornecedores",function(Blueprint $table){
             $table->text("site")->after("nome");
-            
+
         });
-        DB::statement("truncate sq.fornecedores");
+        DB::statement("truncate super_gestao.fornecedores");
     }
 
     /**

@@ -5,7 +5,7 @@
 {{-- cada section terá um yield para renderiza-la --}}
 
 {{-- section para preencher o titulo da página (tag <title>) --}}
-@section("titulo","Criar novo produto")
+@section("titulo","Criar novo cliente")
 
 
 @section("conteudo")
@@ -13,12 +13,11 @@
             <div class="titulo-pagina">
                 <h1>Produtos</h1>
                 <ul class="nav_fornecedor">
-                    <li><a href="{{route('produtos.index')}}" >Voltar</a></li>
-                    <li><a href="" >Consulta</a></li>
+                    <li><a href="{{route('clientes.index')}}" >Voltar</a></li>
                 </ul>
             </div>
             {{-- passamos as variavéis recebidas do controller para o componente --}}
-       @component("app.produtos.components.formulario_produtos",["unidades"=>$unidades, "fornecedores"=>$fornecedores])
+       @component("app.clientes.components.formulario_clientes")
        @endcomponent
       </div>
 @endsection

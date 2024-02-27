@@ -19,12 +19,12 @@ class CreateUnidades extends Migration
             $table->timestamps();
             $table->string("unidade",10);//cm, mm, m, etc...
             $table->string("descricao",100);
-            
+
         });
 
-        Schema::table("produto_detalhes",function(Blueprint $table){
-            $table->unsignedBigInteger("unidade_id");
-            $table->foreign("unidade_id")->references("id")->on("unidades");
+        Schema::table("produtos",function(Blueprint $table){
+            $table->unsignedBigInteger("unidade_id_fk");
+            $table->foreign("unidade_id_fk")->references("id")->on("unidades");
         });
     }
 
@@ -35,12 +35,12 @@ class CreateUnidades extends Migration
      */
     public function down()
     {
-        Schema::table("produto_detalhes",function(Blueprint $table){
-            $table->dropForeign("produto_detalhes_unidade_id_foreign");
+        Schema::table("produtos",function(Blueprint $table){
+            $table->dropForeign("produto_unidade_id_foreign");
             $table->dropColumn("unidade_id");
         });
-        
+
         Schema::dropIfExists('unidades');
-    
+
     }
 }
